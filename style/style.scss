@@ -1,0 +1,130 @@
+@import 'mixins';
+@import 'media-queries';
+
+*{
+  @include reset;
+}
+
+$blue-zodiac: #122244;
+$downy: #73d2ab;
+$white: #ffffff;
+$sky-blue: #6cc7ee;
+$san-marino: #40789d;
+$anakiwa: #9CE2FE;
+$chambray: #2f5a7e;
+$malibu: #75d8ff;
+
+
+body {
+  margin: 0 44px 0 24px;
+}
+.timeline {
+  height: 18px;
+  width: 100%;
+  background-color: $blue-zodiac;
+  box-shadow: 0 -5px 20px rgba(168, 119, 178, 0.5);
+  border-radius: 5px;
+  margin-top: 200px;
+  position: relative;
+  .container {
+    position: absolute;
+    top: 50%;
+    margin-top: -20px;
+  }
+}
+.iconWrap {
+  background-color: $blue-zodiac;
+  width: 39px;
+  height: 39px; 
+  border-radius: 50%;
+  position: relative;
+  .icon{
+    width: 29px;
+    height: 29px;
+    border-radius: 50%;
+    @include centering(50%,50%);
+    &:hover {
+      background-color: $downy;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94);
+      background-image: linear-gradient(to top, #56b08b 0%, $downy 89%, $downy 100%);
+      cursor: pointer;
+      .tooltipText {
+        visibility: visible;
+        -webkit-animation: fadeIn 0.5s;
+        animation: fadeIn 0.5s;
+      }
+    }
+  }
+  i{
+    @include centering(50%,50%);
+    color: $white;
+    font-size: 18px;
+  }
+}
+.tooltipText {
+  visibility: hidden;
+  border: 1px solid $downy;
+  background-color: $white;
+  text-align: center;
+  z-index: 1;
+  bottom: 42px;
+  @include centering(50%, none);
+  color: $blue-zodiac;
+  font-family: "Open Sans";
+  font-size: 10px;
+  font-weight: 400;
+  text-transform: uppercase;
+  letter-spacing: 0.2px;
+  &:after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: $downy transparent transparent transparent;
+  }
+  h1 {
+    font-size: 10px;
+    font-weight: bold;
+    border-bottom: 1px solid $downy;
+    padding: 8px;
+    margin: 0;
+  }
+  p {
+    padding: 8px;
+    margin: 0;
+  }
+}
+.timelineHighlight {
+  position: absolute;
+  top: 50%;
+  margin-top: -6px;
+  height: 11px;
+  border-radius: 4px;
+  margin-left: 5px;
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.45);
+  background-image: linear-gradient(to top, $chambray 0%, $malibu 100%);
+}
+.iconHighlight {
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.94);
+  background-color: $san-marino;
+  background-image: linear-gradient(to top, $san-marino 0%, $sky-blue 89%, $sky-blue 100%);
+  &:hover {
+    background-image: linear-gradient(to top, $sky-blue 0%, $anakiwa 89%, $anakiwa 100%) !important;
+    background-color: $san-marino;
+  }
+}
+.iHighlight {
+  color: $blue-zodiac !important;
+}
+.tooltipHighlight {
+  border-color: $sky-blue !important;
+  &:after {
+    border-color: $sky-blue transparent transparent transparent !important;
+  }
+  h1 {
+    border-bottom: 1px solid $sky-blue !important;
+  }
+}
